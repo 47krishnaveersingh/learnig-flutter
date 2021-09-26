@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:initial/pages/home_page.dart';
 import 'package:initial/pages/login_page.dart';
 import 'package:initial/utils/routes.dart';
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: MyTheme.lightTheme,
       themeMode: ThemeMode.light,
       darkTheme: MyTheme.darkTheme,
-      initialRoute: MyRoutes.homeRoute,
+      initialRoute: MyRoutes.loginRoute,
       routes: {
         "/": (context) => const HomePage(),
         MyRoutes.loginRoute: (context) => const LoginPage(),
