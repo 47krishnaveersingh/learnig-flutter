@@ -10,12 +10,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Catalog app"),
       ),
       body: Center(
-        child: Text("My name is $name and my roll no is $n"),
+        child: Container(
+          color: Colors.green,
+          padding: EdgeInsets.all(20),
+          child: Container(
+            height: 100,
+            width: 100,
+            color: Colors.red,
+          ),
+        ),
       ),
       drawer: const MyDrawer(),
     );
