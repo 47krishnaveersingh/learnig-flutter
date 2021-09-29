@@ -1,13 +1,36 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:initial/models/catalog.dart';
 import 'package:initial/widgets/drawer.dart';
 import 'package:initial/widgets/item_widget.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final String name = "Krishnaveer Singh";
+
   final int n = 47;
 
-  const HomePage({Key? key}) : super(key: key);
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+  }
+
+  loadData() async {
+    final catalogJson =
+        await rootBundle.loadString("assets/files/catalog.json");
+    final decodeData = jsonDecode(catalogJson);
+    final products = decodeData["products"];
+    print(products);
+  }
 
   @override
   Widget build(BuildContext context) {
