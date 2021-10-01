@@ -42,12 +42,44 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Catalog app"),
       ),
       body: (CatalogModel.items.isNotEmpty)
-          ? ListView.builder(
-              padding: const EdgeInsets.all(10),
-              itemCount: CatalogModel.items.length,
+          ? GridView.builder(
+              padding: const EdgeInsets.all(8),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, crossAxisSpacing: 6, mainAxisSpacing: 8),
               itemBuilder: (context, index) {
-                return ItemWidget(item: CatalogModel.items[index]);
+                final item = CatalogModel.items[index];
+                return Card(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6)),
+                  clipBehavior: Clip.antiAlias,
+                  child: GridTile(
+                    header: Container(
+                      alignment: Alignment.center,
+                      height: 32,
+                      child: Text(
+                        item.name,
+                        textScaleFactor: 1.03,
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      ),
+                      decoration: const BoxDecoration(color: Colors.deepPurple),
+                    ),
+                    child: Image.network(item.image),
+                    footer: Container(
+                      padding: const EdgeInsets.all(3),
+                      height: 32,
+                      child: Text(
+                        "\$${item.price.toString()}",
+                        textScaleFactor: 1.06,
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.w500),
+                      ),
+                      decoration: const BoxDecoration(color: Colors.black),
+                    ),
+                  ),
+                );
               },
+              itemCount: CatalogModel.items.length,
             )
           : const Center(
               child: CircularProgressIndicator(),
