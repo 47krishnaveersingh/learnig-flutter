@@ -49,7 +49,7 @@ class CatalogItem extends StatelessWidget {
                           horizontal: 10, vertical: 0),
                       child: ElevatedButton(
                         onPressed: () {},
-                        child: "Buy".text.make(),
+                        child: "Add To Cart".text.make(),
                         style: ButtonStyle(
                             shape: MaterialStateProperty.all(
                                 const StadiumBorder()),

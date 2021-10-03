@@ -31,8 +31,8 @@ class HomePageDetail extends StatelessWidget {
                   shape: MaterialStateProperty.all(
                     StadiumBorder(),
                   )),
-              child: "Buy".text.make(),
-            ).wh(100, 50)
+              child: "Add To Cart".text.make(),
+            ).wh(120, 50)
           ],
         ).p32(),
       ),
@@ -62,7 +62,11 @@ class HomePageDetail extends StatelessWidget {
                         Text(
                           catalog.desc,
                           style: Theme.of(context).textTheme.caption,
-                        ).text.xl.make()
+                        ).text.xl.make(),
+                        Text(
+                          "Clita ipsum gubergren accusam erat consetetur ipsum aliquyam sadipscing. Labore diam dolor diam tempor, sed diam et et no dolor ipsum sed, est et voluptua accusam at labore, invidunt ea stet accusam ipsum lorem accusam sed sit sed. Amet sed gubergren sadipscing sea ipsum invidunt et voluptua sadipscing. Lorem diam.",
+                          style: Theme.of(context).textTheme.caption,
+                        ).text.make().p16()
                       ],
                     ),
                   )),
